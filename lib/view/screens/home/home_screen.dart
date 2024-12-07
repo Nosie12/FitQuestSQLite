@@ -131,7 +131,7 @@ class HomeViewContent extends StatelessWidget {
             style: const TextStyle(color: Colors.white, fontSize: 15),
           ),
           const SizedBox(height: 12),
-          if (!viewModel.goalSet) // Hide input box if goal is set
+          if (!viewModel.goalSet)
             Row(
               children: [
                 Expanded(

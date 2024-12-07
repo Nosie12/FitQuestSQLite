@@ -10,7 +10,6 @@ class LoginView extends StatelessWidget {
     final password = _passwordController.text.trim();
 
     if (email.isEmpty || password.isEmpty) {
-      // Show a dialog if email or password is empty
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -30,15 +29,12 @@ class LoginView extends StatelessWidget {
     }
 
     try {
-      // Perform Firebase authentication
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-      // Navigate to HomeScreen after successful sign-in
       Navigator.pushReplacementNamed(context, '/home');
     } on FirebaseAuthException catch (e) {
-      // Handle Firebase errors
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -65,7 +61,6 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Background image
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -97,7 +92,6 @@ class LoginView extends StatelessWidget {
                 ),
                 const SizedBox(height: 190),
 
-                // Email Label
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
@@ -113,7 +107,7 @@ class LoginView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 5),
-                // Email Box
+
                 SizedBox(
                   width: screenWidth - 2 * padding,
                   height: 40,
@@ -130,7 +124,6 @@ class LoginView extends StatelessWidget {
                 ),
                 const SizedBox(height: 35),
 
-                // Password Label
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
@@ -146,7 +139,6 @@ class LoginView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 5),
-                // Password Box
                 SizedBox(
                   width: screenWidth - 2 * padding,
                   height: 40,
@@ -164,7 +156,6 @@ class LoginView extends StatelessWidget {
                 ),
                 const SizedBox(height: 50),
 
-                // Login Button
                 SizedBox(
                   width: screenWidth - 2 * padding,
                   height: 46,
@@ -190,7 +181,6 @@ class LoginView extends StatelessWidget {
                 ),
                 const SizedBox(height: 60),
 
-                // Sign-up Prompt
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

@@ -28,7 +28,6 @@ class HomeViewModel extends ChangeNotifier {
       if (user != null) {
         String userId = user.uid;
 
-        // Fetch user data and runs
         await fetchUserData(userId);
         await fetchRecentUserRuns(userId);
       } else {

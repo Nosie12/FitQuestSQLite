@@ -6,10 +6,10 @@ class ImproveRunningPage extends StatefulWidget {
 }
 
 class _ImproveRunningPageState extends State<ImproveRunningPage> {
-  final int trialDays = 7; // Days with real content in the trial
-  final int totalDays = 30; // Total days in the trial period
-  double? weight; // User's weight
-  double? height; // User's height
+  final int trialDays = 7;
+  final int totalDays = 30;
+  double? weight;
+  double? height;
   String initialPace = '';
   String initialDistance = '';
 
@@ -17,9 +17,8 @@ class _ImproveRunningPageState extends State<ImproveRunningPage> {
     setState(() {
       if (weight != null && height != null) {
         double bmi = weight! / ((height! / 100) * (height! / 100));
-        // Logic to calculate suggestions based on BMI
+
         if (bmi < 16.0) {
-          // Very low BMI - children or underweight individuals
           initialPace = "8:00"; // min/km
           initialDistance = "1.5"; // km
         } else if (bmi < 18.5) {
@@ -49,7 +48,7 @@ class _ImproveRunningPageState extends State<ImproveRunningPage> {
   String adjustPace(String pace, int day) {
     List<String> timeParts = pace.split(':');
     int minutes = int.parse(timeParts[0]);
-    int seconds = int.parse(timeParts[1]) + (day * 2); // Increment seconds by 2 each day
+    int seconds = int.parse(timeParts[1]) + (day * 2);
     if (seconds >= 60) {
       minutes += seconds ~/ 60;
       seconds = seconds % 60;
@@ -58,7 +57,7 @@ class _ImproveRunningPageState extends State<ImproveRunningPage> {
   }
 
   String adjustDistance(String distance, int day) {
-    double dist = double.parse(distance) + (day * 0.1); // Increment distance by 0.1 km each day
+    double dist = double.parse(distance) + (day * 0.1);
     return dist.toStringAsFixed(1);
   }
 
@@ -74,7 +73,7 @@ class _ImproveRunningPageState extends State<ImproveRunningPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Enter your details to get personalized suggestions:',
               style: TextStyle(
                 color: Colors.white,
@@ -167,14 +166,14 @@ class _ImproveRunningPageState extends State<ImproveRunningPage> {
                           children: [
                             Text(
                               'Day ${index + 1}',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             if (isLocked)
-                              Icon(
+                              const Icon(
                                 Icons.lock,
                                 color: Colors.grey,
                                 size: 24,
@@ -209,24 +208,24 @@ class _ImproveRunningPageState extends State<ImproveRunningPage> {
   }
 }
 
-void main() {
-  runApp(MaterialApp(
-    initialRoute: '/',
-    routes: {
-      '/': (context) => ImproveRunningPage(),
-      '/run': (context) => Scaffold(
-        appBar: AppBar(
-          title: Text('Run'),
-        ),
-        body: Center(
-          child: Text(
-            'Start your run!',
-            style: TextStyle(fontSize: 24),
-          ),
-        ),
-      ),
-    },
-    theme: ThemeData.dark(),
-    debugShowCheckedModeBanner: false,
-  ));
-}
+// void main() {
+//   runApp(MaterialApp(
+//     initialRoute: '/',
+//     routes: {
+//       '/': (context) => ImproveRunningPage(),
+//       '/run': (context) => Scaffold(
+//         appBar: AppBar(
+//           title: Text('Run'),
+//         ),
+//         body: Center(
+//           child: Text(
+//             'Start your run!',
+//             style: TextStyle(fontSize: 24),
+//           ),
+//         ),
+//       ),
+//     },
+//     theme: ThemeData.dark(),
+//     debugShowCheckedModeBanner: false,
+//   ));
+// }

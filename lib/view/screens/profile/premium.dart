@@ -91,7 +91,6 @@ class PremiumScreen extends StatelessWidget {
                     'Monthly Plan',
                     'Access all premium features for 30 days.',
                         () {
-                      // Navigate to Monthly Plan Details
                       Navigator.pushNamed(context, '/monthlyPlan');
                     },
                   ),
@@ -100,7 +99,6 @@ class PremiumScreen extends StatelessWidget {
                     'Annual Plan',
                     'Save more with a full year subscription.',
                         () {
-                      // Navigate to Annual Plan Details
                       Navigator.pushNamed(context, '/annualPlan');
                     },
                   ),
@@ -118,7 +116,6 @@ class PremiumScreen extends StatelessWidget {
                     'Priority Support',
                     'Get assistance faster with priority support.',
                         () {
-                      // Navigate to Priority Support Details
                       Navigator.pushNamed(context, '/prioritySupport');
                     },
                   ),
@@ -127,7 +124,6 @@ class PremiumScreen extends StatelessWidget {
                     'Ad-Free Experience',
                     'Enjoy the app without interruptions.',
                         () {
-                      // Navigate to Ad-Free Details
                       Navigator.pushNamed(context, '/adFree');
                     },
                   ),

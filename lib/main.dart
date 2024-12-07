@@ -7,6 +7,7 @@ import 'package:fit_quest_final_project/view/screens/home/profile_view.dart';
 import 'package:fit_quest_final_project/view/screens/profile/history.dart';
 import 'package:fit_quest_final_project/view/screens/profile/premium.dart';
 import 'package:fit_quest_final_project/view/screens/profile/thirty_day_challenge.dart';
+import 'package:fit_quest_final_project/view/screens/run/run_history_screen.dart';
 import 'package:fit_quest_final_project/view/screens/run/start_run_screen.dart';
 import 'package:fit_quest_final_project/viewmodel/run/start_run_viewmodels.dart';
 import 'package:flutter/material.dart';

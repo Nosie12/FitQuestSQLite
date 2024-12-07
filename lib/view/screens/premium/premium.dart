@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Home Page with navigation to different features
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -61,7 +60,6 @@ class HomePage extends StatelessWidget {
   }
 }
 
-// Premium Page with subscription options
 class PremiumPage extends StatelessWidget {
   const PremiumPage({super.key});
   @override
@@ -131,7 +129,6 @@ class PremiumPage extends StatelessWidget {
   }
 }
 
-// Theme Page with color options
 class ThemePage extends StatelessWidget {
   const ThemePage({super.key});
   @override
@@ -173,7 +170,6 @@ class ThemePage extends StatelessWidget {
   }
 }
 
-// 30 Days Challenge Page
 class DaysPage extends StatelessWidget {
   const DaysPage({super.key});
   @override
@@ -212,7 +208,6 @@ class DaysPage extends StatelessWidget {
   }
 }
 
-// History Page with activity log
 class HistoryPage extends StatelessWidget {
   const HistoryPage({super.key});
   @override
@@ -240,7 +235,6 @@ class HistoryPage extends StatelessWidget {
   }
 }
 
-// Share Page
 class SharePage extends StatelessWidget {
   const SharePage({super.key});
   @override
@@ -285,7 +279,6 @@ class SharePage extends StatelessWidget {
   }
 }
 
-// Rate Page
 class RatePage extends StatelessWidget {
   const RatePage({super.key});
   @override
@@ -324,7 +317,6 @@ class RatePage extends StatelessWidget {
   }
 }
 
-// About Page
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
   @override

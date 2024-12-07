@@ -4,12 +4,12 @@ import '../../data/models/run_data.dart';
 class FirestoreRunRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  // Fetch runs from Firestore
+
   Future<List<RunData>> fetchRuns(String userId) async {
     try {
       final mainCollection = _firestore.collection('runs');
       final querySnapshot = await mainCollection
-          .where('userId', isEqualTo: userId) // Filter runs by userId
+          .where('userId', isEqualTo: userId)
           .get();
 
       List<RunData> runs = [];
@@ -26,12 +26,11 @@ class FirestoreRunRepository {
     }
   }
 
-  // Save run data to Firestore
+
   Future<void> saveRunData(RunData runData, String userId) async {
     try {
       final runRef = _firestore.collection('runs').doc();
 
-      // Save the run data to Firestore
       await runRef.set({
         'userId': userId,
         'route': runData.route.map((latLng) => {

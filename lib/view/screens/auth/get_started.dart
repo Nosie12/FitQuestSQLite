@@ -11,7 +11,7 @@ class GetStartedView extends StatelessWidget {
       body: Container(
         width: screenWidth,
         height: screenHeight,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/gym-running-shoes-stockcake 3.png'),
             fit: BoxFit.cover, // Ensures the image scales properly
@@ -47,7 +47,6 @@ class GetStartedView extends StatelessWidget {
                     ],
                   ),
 
-                  // Move text and button lower
                   Padding(
                     padding: EdgeInsets.only(bottom: screenHeight * 0.1),
                     child: Column(

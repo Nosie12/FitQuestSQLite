@@ -8,7 +8,6 @@ class SignUpView extends StatelessWidget {
 
   bool signUp(email, password, confirmPassword, context) {
     if (email.isEmpty || password.isEmpty) {
-      // Show an error dialog if any field is empty
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Please fill out all fields.")),
       );
@@ -17,7 +16,6 @@ class SignUpView extends StatelessWidget {
 
     try {
       if (password == confirmPassword) {
-        // Perform Firebase sign-up
         FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: email,
           password: password,
@@ -39,14 +37,12 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get screen size for responsiveness
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: Stack(
         children: [
-          // Background image
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -57,10 +53,10 @@ class SignUpView extends StatelessWidget {
           ),
           // Content
           SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: width * 0.05), // Adjust padding based on screen size
+            padding: EdgeInsets.symmetric(horizontal: width * 0.05),
             child: Column(
               children: [
-                SizedBox(height: height * 0.2), // Increased space at the top
+                SizedBox(height: height * 0.2),
 
                 const Text(
                   'Welcome!',
@@ -70,18 +66,17 @@ class SignUpView extends StatelessWidget {
                     color: Color(0xFF467115),
                     shadows: [
                       Shadow(
-                        offset: Offset(2.0, 2.0), // Horizontal and vertical offset
-                        blurRadius: 1.0, // Blurring effect
-                        color: Color.fromARGB(128, 0, 0, 0), // Semi-transparent black
+                        offset: Offset(2.0, 2.0),
+                        blurRadius: 1.0,
+                        color: Color.fromARGB(128, 0, 0, 0),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: height * 0.15), // Adjusted space
-
+                SizedBox(height: height * 0.15),
                 // Email Label
                 SizedBox(
-                  width: width * 0.85, // Adjust width based on screen size
+                  width: width * 0.85,
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -95,7 +90,6 @@ class SignUpView extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 2),
-                // Email Box
                 SizedBox(
                   width: width * 0.85,
                   height: 40,
@@ -111,10 +105,9 @@ class SignUpView extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: height * 0.03), // Spacing for the next field
-                // Password Label
+                SizedBox(height: height * 0.03),
                 SizedBox(
-                  width: width * 0.85, // Adjust width based on screen size
+                  width: width * 0.85,
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -128,7 +121,7 @@ class SignUpView extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 2),
-                // Password Box
+
                 SizedBox(
                   width: width * 0.85,
                   height: 40,
@@ -145,10 +138,9 @@ class SignUpView extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: height * 0.03), // Spacing for the next field
-                // Confirm Password Label
+                SizedBox(height: height * 0.03),
                 SizedBox(
-                  width: width * 0.85, // Adjust width based on screen size
+                  width: width * 0.85,
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -179,7 +171,7 @@ class SignUpView extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: height * 0.05), // Spacing for the button
+                SizedBox(height: height * 0.05),
                 // Sign-Up Button
                 SizedBox(
                   width: width * 0.85,
@@ -214,8 +206,7 @@ class SignUpView extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: height * 0.05), // Spacing for login prompt
-                // Login Prompt
+                SizedBox(height: height * 0.05),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
