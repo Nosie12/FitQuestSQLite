@@ -7,7 +7,7 @@ class RunData {
   final Duration duration;
   final DateTime startTime;
   final DateTime endTime;
-  final List<LatLng> route; // List of LatLng objects
+  final List<LatLng> route;
   final String userId;
   bool showTime;
 
@@ -22,7 +22,6 @@ class RunData {
     this.showTime = false
   });
 
-  // Convert to map for Firestore saving
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -38,7 +37,6 @@ class RunData {
     };
   }
 
-  // Factory method to create a Run object from Firestore document
   factory RunData.fromFirestore(String id, Map<String, dynamic> data) {
     return RunData(
       id: id,
@@ -56,7 +54,6 @@ class RunData {
     );
   }
 
-  // Helper method to handle both Timestamp and String
   static DateTime _convertToDateTime(dynamic value) {
     if (value is Timestamp) {
       return value.toDate();

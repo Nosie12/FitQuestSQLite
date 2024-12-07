@@ -114,7 +114,11 @@ class StartRunViewModel extends ChangeNotifier {
         }
 
         _lastPosition = newLatLng;
-        _updatePolyline();
+
+        // Add the new position to the polyline coordinates
+        _polylineCoordinates.add(newLatLng);
+
+        _updatePolyline(); // Update the polyline
         _updateMarker(newLatLng); // Update user position marker
         notifyListeners();
       });
