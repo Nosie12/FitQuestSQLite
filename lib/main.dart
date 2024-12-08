@@ -5,6 +5,7 @@ import 'package:fit_quest_final_project/view/screens/auth/register_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fit_quest_final_project/view/screens/home/home_screen.dart';
 import 'package:fit_quest_final_project/view/screens/home/profile_view.dart';
+import 'package:fit_quest_final_project/view/screens/home/profile_view.dart';
 import 'package:fit_quest_final_project/view/screens/profile/history.dart';
 import 'package:fit_quest_final_project/view/screens/profile/premium.dart';
 import 'package:fit_quest_final_project/view/screens/profile/thirty_day_challenge.dart';
