@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../data/models/run_data.dart';
+import './run_repository.dart';
 
-class FirestoreRunRepository {
+/// Firestore Repository Implementation
+class FirestoreRunRepository implements RunRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-
+  @override
   Future<List<RunData>> fetchRuns(String userId) async {
     try {
       final mainCollection = _firestore.collection('runs');
@@ -13,12 +15,10 @@ class FirestoreRunRepository {
           .get();
 
       List<RunData> runs = [];
-
       for (var document in querySnapshot.docs) {
         final data = document.data();
         runs.add(RunData.fromFirestore(document.id, data));
       }
-
       return runs;
     } catch (e) {
       print('Error fetching runs from Firestore: $e');
@@ -26,22 +26,11 @@ class FirestoreRunRepository {
     }
   }
 
-
+  @override
   Future<void> saveRunData(RunData runData, String userId) async {
     try {
       final runRef = _firestore.collection('runs').doc();
-
-      await runRef.set({
-        'userId': userId,
-        'route': runData.route.map((latLng) => {
-          'latitude': latLng.latitude,
-          'longitude': latLng.longitude
-        }).toList(),
-        'distance': runData.distance,
-        'duration': runData.duration.inSeconds,
-        'startTime': runData.startTime.toIso8601String(),
-        'endTime': runData.endTime.toIso8601String(),
-      });
+      await runRef.set(runData.toMap());
     } catch (e) {
       print("Error saving run data: $e");
       throw Exception('Error saving run data');

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../data/models/run_data.dart';
+import '../../domain/repository/run_repo_manager.dart';
+import '../../domain/repository/sqlite_repository.dart';
 import '../../domain/repository/firestore_run_repository.dart';
 
 // Enum representing the state of a run
@@ -33,7 +35,10 @@ class StartRunViewModel extends ChangeNotifier {
   Duration _totalDuration = Duration.zero;
   Timer? _durationTimer;
 
-  final FirestoreRunRepository _firestoreRunRepository = FirestoreRunRepository();
+  final RunRepositoryManager _repositoryManager;
+
+  StartRunViewModel({required RunRepositoryManager repositoryManager})
+      : _repositoryManager = repositoryManager;
 
   // Getters
   Position? get currentPosition => _currentPosition;
@@ -94,32 +99,25 @@ class StartRunViewModel extends ChangeNotifier {
       _positionStream = Geolocator.getPositionStream(
         locationSettings: const LocationSettings(
           accuracy: LocationAccuracy.high,
-          distanceFilter: 5, // Minimum distance change to trigger updates
+          distanceFilter: 2,
         ),
       ).listen((Position position) {
-        if (position.accuracy > 50) {
-          // Ignore updates with accuracy worse than 50 meters
-          print("Skipping position update due to low accuracy: ${position.accuracy} meters");
-          return;
-        }
+        // Log the accuracy for debugging purposes
+        print("Position update received with accuracy: ${position.accuracy} meters");
 
-        print('New Position: ${position.latitude}, ${position.longitude}');
-        _currentPosition = position;
+      _currentPosition = position;
 
         final newLatLng = LatLng(position.latitude, position.longitude);
 
         if (_lastPosition != null) {
-          print('Calculating distance from $_lastPosition to $newLatLng');
           _calculateDistance(_lastPosition!, newLatLng);
         }
 
         _lastPosition = newLatLng;
 
-        // Add the new position to the polyline coordinates
         _polylineCoordinates.add(newLatLng);
-
-        _updatePolyline(); // Update the polyline
-        _updateMarker(newLatLng); // Update user position marker
+        _updatePolyline();
+        _updateMarker(newLatLng);
         notifyListeners();
       });
 
@@ -132,7 +130,6 @@ class StartRunViewModel extends ChangeNotifier {
     }
   }
 
-  // Stop Run Logic
   void stopRun() {
     _runState = RunState.stopped;
     _positionStream?.cancel();
@@ -145,14 +142,13 @@ class StartRunViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Reset Run (optional)
   void resetRun() {
     _runState = RunState.idle;
     _currentPosition = null;
     _lastPosition = null;
     _polylineCoordinates = [];
     _polylines.clear();
-    _markers.clear(); // Clear markers on reset
+    _markers.clear();
     _distance = 0.0;
     _totalDuration = Duration.zero;
     _startTime = null;
@@ -160,33 +156,29 @@ class StartRunViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Update polyline set
   void _updatePolyline() {
     _polylines.clear();
     _polylines.add(
       Polyline(
         polylineId: const PolylineId('route'),
         points: _polylineCoordinates,
-        color: Colors.green, // Green color for route
+        color: Colors.green,
         width: 5,
       ),
     );
   }
 
-  // Update user marker position
   void _updateMarker(LatLng position) {
     _markers.clear();
     _markers.add(
       Marker(
         markerId: const MarkerId('user_position'),
         position: position,
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen), // Green arrow icon
-        rotation: 0, // Rotation based on direction can be added if needed
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
       ),
     );
   }
 
-  // Start duration tracking
   void _startDurationTracking() {
     _durationTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       _totalDuration = DateTime.now().difference(_startTime!);
@@ -194,7 +186,26 @@ class StartRunViewModel extends ChangeNotifier {
     });
   }
 
-  // Handle location permission
+  Future<void> saveRunData(String userId) async {
+    if (_runState != RunState.stopped) return;
+
+    final runData = RunData(
+      id: DateTime.now().millisecondsSinceEpoch.toString(),
+      route: _polylineCoordinates,
+      distance: _distance,
+      duration: _totalDuration,
+      startTime: _startTime!,
+      endTime: DateTime.now(),
+      userId: userId,
+    );
+
+    try {
+      await _repositoryManager.saveRunData(runData, userId);
+    } catch (e) {
+      print("Error saving run data: $e");
+    }
+  }
+
   Future<bool> _handleLocationPermission() async {
     final permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
@@ -213,36 +224,9 @@ class StartRunViewModel extends ChangeNotifier {
       end.longitude,
     );
 
-    if (distanceMeters > 100) {
-      print('Ignoring unrealistic jump of $distanceMeters meters');
-      return;
-    }
-
     if (distanceMeters >= 1) {
       _distance += distanceMeters / 1000;
-      print('Updated Distance: $_distance km');
-      print('Updated Avg Pace: $avgPace min/km');
       notifyListeners();
-    }
-  }
-
-  Future<void> saveRunData(String userId) async {
-    if (_runState != RunState.stopped) return;
-
-    final runData = RunData(
-      id: DateTime.now().millisecondsSinceEpoch.toString(),
-      route: _polylineCoordinates,
-      distance: _distance,
-      duration: _totalDuration,
-      startTime: _startTime!,
-      endTime: DateTime.now(),
-      userId: userId,
-    );
-
-    try {
-      await _firestoreRunRepository.saveRunData(runData, userId);
-    } catch (e) {
-      print("Error saving run data: $e");
     }
   }
 }

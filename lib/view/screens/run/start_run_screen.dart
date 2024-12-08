@@ -236,7 +236,7 @@ class _StartRunScreenState extends State<StartRunScreen> {
           ),
           TextButton(
             onPressed: () {
-              viewModel.resetRun();
+              viewModel.resetRun(); // Resetting the state properly
               Navigator.of(context).pop();
             },
             child: const Text('Discard'),
