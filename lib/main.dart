@@ -15,18 +15,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:fit_quest_final_project/domain/repository/sqlite_repository.dart';
 import 'package:fit_quest_final_project/domain/repository/firestore_run_repository.dart';
-import 'package:fit_quest_final_project/domain/repository/sync_manager.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'domain/repository/run_repo_manager.dart';
 import 'firebase_options.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:flutter/foundation.dart';
 import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
-import 'package:sqflite_common_ffi/sqflite_ffi.dart'; // For native platforms
-import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart'; // For web
-import 'package:flutter/foundation.dart'; // For kIsWeb check
 
-// Fix: Ensure SQLite is initialized correctly for web and mobile support
 void initSqfliteFfi() {
   if (kIsWeb) {
     databaseFactory = databaseFactoryFfiWeb;

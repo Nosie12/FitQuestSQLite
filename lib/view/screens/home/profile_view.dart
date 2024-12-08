@@ -233,7 +233,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 crossAxisSpacing: 12,
                 childAspectRatio: 1.4,
                 children: [
-                  _buildMenuCard(context, 'Theme', () {
+                  _buildMenuCard(context, 'Dashboard', () {
                     Navigator.pushNamed(context, '/theme');
                   }),
                   _buildMenuCard(context, '30 Days Challenge', () {
