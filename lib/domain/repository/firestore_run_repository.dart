@@ -2,6 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../data/models/run_data.dart';
 import './run_repository.dart';
 
+/** Repository for managing running data with Firestore.
+    Handles fetching runs by user ID and saving new run data.
+    Interfaces with Firestore's `runs` collection. **/
+
 /// Firestore Repository Implementation
 class FirestoreRunRepository implements RunRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

@@ -2,6 +2,10 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fit_quest_final_project/domain/repository/sync_manager.dart';
 import 'package:flutter/material.dart';
 
+/** Manages network connectivity changes and triggers data sync.
+    Monitors network status and communicates with the provided SyncManager.
+    Listens for connectivity changes to determine online/offline status. **/
+
 class NetworkManager {
   final SyncManager syncManager;
   late Stream<ConnectivityResult> connectivityStream;

@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+/** Represents a running session with its key details.
+    Includes distance, duration, route, timing, and user information for a run. **/
 
 class RunData {
   final String id;

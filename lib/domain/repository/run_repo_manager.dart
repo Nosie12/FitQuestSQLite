@@ -2,6 +2,9 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import '../../data/models/run_data.dart';
 import './run_repository.dart';
 
+/** Manages synchronization between local and remote repositories.
+    Handles data fetch and save operations based on network connectivity.
+    Determines whether to use local or remote repositories depending on online status. **/
 /// Repository Manager
 class RunRepositoryManager implements RunRepository {
   final RunRepository localRepo;
