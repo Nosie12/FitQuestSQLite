@@ -94,7 +94,7 @@ class StartRunViewModel extends ChangeNotifier {
       _positionStream = Geolocator.getPositionStream(
         locationSettings: const LocationSettings(
           accuracy: LocationAccuracy.high,
-          distanceFilter: 2, // Minimum distance change to trigger updates
+          distanceFilter: 5, // Minimum distance change to trigger updates
         ),
       ).listen((Position position) {
         if (position.accuracy > 50) {
