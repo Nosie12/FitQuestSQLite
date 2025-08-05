@@ -65,14 +65,27 @@ The app follows the **MVVM (Model-View-ViewModel)** design pattern:
 3. **View**: Handles rendering UI components dynamically.
 
 
-## 📸 App Screenshots
+<h3>📸 App Screenshots</h3>
 
-Below are sample screenshots of the app in action:
+<!-- Row 1 -->
+<p>
+  <img src="https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(1).png" alt="Home Screen" width="45%" />
+  <img src="https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(2).png" alt="Weekly Goals" width="45%" />
+</p>
 
-![Home Screen](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(1).png)  ![Weekly Goals](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(2).png)  
-![Weekly ](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(7).png)
-![Real-Time Map Tracking](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(6).png)  
-![Activity Log](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(4).png)  
-![Profile Section](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(5).png)
-![Profile ](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(3).png)
+<!-- Row 2 -->
+<p>
+  <img src="https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(7).png" alt="Weekly" width="45%" />
+  <img src="https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(6).png" alt="Real-Time Map Tracking" width="45%" />
+</p>
 
+<!-- Row 3 -->
+<p>
+  <img src="https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(4).png" alt="Activity Log" width="45%" />
+  <img src="https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(5).png" alt="Profile Section" width="45%" />
+</p>
+
+<!-- Row 4 -->
+<p>
+  <img src="https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(3).png" alt="Profile" width="45%" />
+</p>
