@@ -69,8 +69,9 @@ The app follows the **MVVM (Model-View-ViewModel)** design pattern:
 
 Below are sample screenshots of the app in action:
 
-![Home Screen](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(1).png)  
-![Weekly Goals](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(2).png)  
-![Real-Time Map Tracking](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(3).png)  
+![Home Screen](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(1).png)  ![Weekly Goals](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(2).png)  
+![Real-Time Map Tracking](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(6).png)  
 ![Activity Log](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(4).png)  
 ![Profile Section](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(5).png)
+![Profile ](https://raw.githubusercontent.com/Nosie12/FitQuestSQLite/main/assets/images/Jla3P43tx11%20(3).png)
+
