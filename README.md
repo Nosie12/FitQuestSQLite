@@ -69,8 +69,8 @@ The app follows the **MVVM (Model-View-ViewModel)** design pattern:
 
 Below are sample screenshots of the app in action:
 
-1. ![Home Screen](assets/image/Jla3P43tx11 (1).png)
-2. ![Weekly Goals](assets/image/Jla3P43tx11 (2).png)
-3. ![Real-Time Map Tracking](assets/image/Jla3P43tx11 (3).png)
-4. ![Activity Log](assets/image/Jla3P43tx11 (4).png)
-5. ![Profile Section](assets/image/Jla3P43tx11 (5).png)
+1. ![Home Screen](assets/images/Jla3P43tx11 (1).png)
+2. ![Weekly Goals](assets/images/Jla3P43tx11 (2).png)
+3. ![Real-Time Map Tracking](assets/images/Jla3P43tx11 (3).png)
+4. ![Activity Log](assets/images/Jla3P43tx11 (4).png)
+5. ![Profile Section](assets/images/Jla3P43tx11 (5).png)
