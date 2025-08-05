@@ -1,6 +1,4 @@
-<img width="611" height="921" alt="getstarted(fitquest)" src="https://github.com/user-attachments/assets/cc5c431c-7735-4c7d-9274-cffe70284c60" /># FitQuest - A Running & Fitness Tracking App
-
-FitQuest is a fitness tracking mobile application that allows users to monitor their running goals, track recent activity, and manage weekly fitness progress. Designed for simplicity and engagement, it uses intuitive graphs, goal management, and dynamic activity tracking features to help users achieve their fitness journey.
+## FitQuest is a fitness tracking mobile application that allows users to monitor their running goals, track recent activity, and manage weekly fitness progress. Designed for simplicity and engagement, it uses intuitive graphs, goal management, and dynamic activity tracking features to help users achieve their fitness journey.
 
 ---
 
@@ -71,8 +69,8 @@ The app follows the **MVVM (Model-View-ViewModel)** design pattern:
 
 Below are sample screenshots of the app in action:
 
-1. ![Home Screen]()
-2. ![Weekly Goals](screenshots/screenshot2.png)
-3. ![Real-Time Map Tracking](screenshots/screenshot3.png)
-4. ![Activity Log](screenshots/screenshot4.png)
-5. ![Profile Section](screenshots/screenshot5.png)
+1. ![Home Screen](assets/image/Jla3P43tx11 (1).png)
+2. ![Weekly Goals](assets/image/Jla3P43tx11 (2).png)
+3. ![Real-Time Map Tracking](assets/image/Jla3P43tx11 (3).png)
+4. ![Activity Log](assets/image/Jla3P43tx11 (4).png)
+5. ![Profile Section](assets/image/Jla3P43tx11 (5).png)
